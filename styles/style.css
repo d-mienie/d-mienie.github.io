@@ -27,3 +27,57 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Single column on small screens */
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.project {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.project.reverse {
+    flex-direction: row-reverse;
+}
+
+iframe {
+    flex: 1;
+    /* Allow videos to resize dynamically */
+    max-width: 100%;
+    /* Ensure it doesn't exceed container width */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+p {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Optional: Adjust for larger screens */
+@media (min-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+        /* Two columns for larger screens */
+    }
+
+    .project {
+        flex-direction: column;
+        /* Stack content vertically for a clean grid */
+        align-items: flex-start;
+    }
+
+    .project.reverse {
+        flex-direction: column;
+        /* Reverse stacking for consistency */
+        align-items: flex-end;
+    }
+}
