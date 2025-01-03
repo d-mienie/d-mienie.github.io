@@ -15,6 +15,7 @@
     background-color: #d8e5f3;
     border-radius: 8px;
     border-color: #1b65dc;
+    color:#0e3778;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -24,7 +25,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    /* Ensure the header takes full width */
     width: 100%;
 }
 
@@ -202,14 +202,14 @@
 
 .icon {
     font-size: 40px;
-    color: #4CAF50;
+    color:#41e0d0;
     margin-bottom: 15px;
 }
 
 h3 {
     font-size: 20px;
     font-weight: 600;
-    color: #333;
+    color: #41e0d0;
     margin-bottom: 10px;
 }
 

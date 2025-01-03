@@ -19,10 +19,10 @@ export default function Header() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ml-auto text-center">
-                        <Nav.Link as={Link} to="about" smooth={true} duration={500} className="text-black h5">About</Nav.Link>
-                        <Nav.Link as={Link} to="skills" smooth={true} duration={500} className="text-black h5">Skills</Nav.Link>
-                        <Nav.Link as={Link} to="projects" smooth={true} duration={500} className="text-black h5">Projects</Nav.Link>
-                        <Nav.Link as={Link} to="contact" smooth={true} duration={500} className="text-black h5">Contact</Nav.Link>
+                        <Nav.Link as={Link} to="about" smooth={true} duration={500} style={{ color: '#14499d' }} className="h5">About</Nav.Link>
+                        <Nav.Link as={Link} to="skills" smooth={true} duration={500} style={{ color: '#14499d' }} className="h5">Skills</Nav.Link>
+                        <Nav.Link as={Link} to="projects" smooth={true} duration={500} style={{ color: '#14499d' }} className="h5">Projects</Nav.Link>
+                        <Nav.Link as={Link} to="contact" smooth={true} duration={500} style={{ color: '#14499d' }} className="h5">Contact</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
