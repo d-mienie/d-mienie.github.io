@@ -1,8 +1,8 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import { Link } from "react-scroll";  // Import the Link component from react-scroll
+import { Link } from "react-scroll"; 
 import signature from "../img/signature1.png";
-import './style.css';  // Assuming you have your custom CSS here
+import './style.css';  
 
 export default function Header() {
     return (
