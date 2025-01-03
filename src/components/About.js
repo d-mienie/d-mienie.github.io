@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
-import me from "../img/me.jpg"; // Image of yourself
-const resume = "/resume.pdf";// Path to your resume PDF
+import me from "../img/me.jpg"; 
+const resume = "/resume.pdf";
 
 const About = () => {
     return (
