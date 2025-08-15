@@ -1,0 +1,64 @@
+.about-page {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Large card filling most of the screen */
+.about-card-wide {
+  max-width: 1200px;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 18px;
+  padding: 2rem 3rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+/* Flex layout for text + image */
+.about-inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Text area */
+.intro-text {
+  flex: 1;
+}
+.intro-text h1 {
+  margin-bottom: 0.5rem;
+}
+.intro-text h2 {
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+.intro-text p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Image */
+.intro-photo-container {
+  flex: 0 0 300px;
+}
+.intro-photo-large {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* Responsive: stack image below text */
+@media (max-width: 800px) {
+  .about-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .intro-photo-container {
+    flex: none;
+    width: 80%;
+    max-width: 300px;
+  }
+}

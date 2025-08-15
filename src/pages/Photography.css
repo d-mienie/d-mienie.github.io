@@ -1,0 +1,48 @@
+/* Photography-specific styles only */
+
+/* Grid layout inside the card */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  gap: 1.75rem;
+  align-items: start;
+}
+
+.photo-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  display: block;
+}
+
+.photo-desc {
+  margin: 0.8rem 0.2rem 0;
+  font-size: 1.03rem;
+  color: #444;
+  text-align: center;
+}
+
+.follow-text {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* Responsive tweaks */
+@media (max-width: 1100px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+  }
+}
+@media (max-width: 680px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+}
