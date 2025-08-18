@@ -1,8 +1,8 @@
 {
-  "homepage": "https://d-mienie.github.io/",
   "name": "new_website",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://d-mienie.github.io/",
   "dependencies": {
     "cra-template-pwa": "2.0.0",
     "react": "^19.1.0",
@@ -12,28 +12,23 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^5.0.3"
   },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "cp build/index.html build/404.html && echo > build/.nojekyll",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build -b gh-pages",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": ["react-app", "react-app/jest"]
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   }
 }
