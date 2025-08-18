@@ -1,64 +1,138 @@
-.about-page {
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
+:root { --brand: #1976d2; }
+
+/* ============= Card width & general layout ============= */
+.about .about-card {
+  max-width: 960px;              /* narrower for readability */
+  margin-inline: auto;
 }
 
-/* Large card filling most of the screen */
-.about-card-wide {
-  max-width: 1200px;
-  width: 100%;
-  background: #fff;
-  border: 1px solid #eaeaea;
-  border-radius: 18px;
-  padding: 2rem 3rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+/* ============= Header (name, role, avatar) ============= */
+.about-hero {
+  display: grid;
+  place-items: center;
+  gap: .35rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1rem;
 }
 
-/* Flex layout for text + image */
-.about-inner {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+.about-title {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(1.8rem, 5.5vw, 3rem);
+  line-height: 1.05;
+}
+.about-role {
+  margin: 0;
+  text-align: center;
+  color: #555;
+  font-size: clamp(1rem, 3.4vw, 1.25rem);
 }
 
-/* Text area */
-.intro-text {
-  flex: 1;
-}
-.intro-text h1 {
-  margin-bottom: 0.5rem;
-}
-.intro-text h2 {
-  margin-bottom: 1.2rem;
-  font-weight: 600;
-}
-.intro-text p {
-  font-size: 1.05rem;
-  line-height: 1.6;
-}
-
-/* Image */
-.intro-photo-container {
-  flex: 0 0 300px;
-}
-.intro-photo-large {
-  width: 100%;
-  height: auto;
-  border-radius: 14px;
+/* Compact, framed avatar — never oversized */
+.about-avatar {
+  width: clamp(110px, 28vw, 180px);  /* phone → desktop */
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border-radius: 20px;
+  display: block;
+  margin-top: .35rem;
+  border: 1px solid rgba(0,0,0,.07);
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
 }
 
-/* Responsive: stack image below text */
-@media (max-width: 800px) {
-  .about-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-  .intro-photo-container {
-    flex: none;
-    width: 80%;
-    max-width: 300px;
+/* ============= Bio text ============= */
+.about-prose {
+  max-width: 68ch;                /* comfy line length */
+  margin: .5rem auto 1.1rem;
+  color: #222;
+  font-size: clamp(1rem, 2.3vw, 1.125rem);
+  line-height: 1.75;
+  text-align: left;
+}
+
+/* ============= Section headings ============= */
+.section-title {
+  text-align: center;
+  margin: .6rem auto .5rem;
+  font-size: clamp(1.1rem, 3.6vw, 1.3rem);
+}
+
+/* ============= Skills chips ============= */
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  justify-content: center;
+  padding: 0;
+  margin: 0 auto 1rem;
+  list-style: none;
+  max-width: 80ch;
+}
+.chip {
+  padding: .45rem .7rem;
+  border-radius: 999px;
+  background: #f4f8ff;
+  color: #114f92;
+  border: 1px solid rgba(25,118,210,.18);
+  font-size: .95rem;
+  white-space: nowrap;
+}
+
+/* CTA row */
+.about-cta { display: flex; justify-content: center; margin-top: .5rem; }
+
+/* ============= Guards (override any legacy rules) ============= */
+.page-card img.about-photo,
+.about-row img.about-photo,
+img.about-photo {
+  width: clamp(110px, 28vw, 180px) !important;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* --- Cute, minimal “story tiles” --- */
+.story-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:.75rem;
+  margin:.5rem auto 1.2rem;
+  max-width: 900px;
+}
+
+.story{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  padding:.85rem 1rem;
+  background:#fff;
+  border:1px solid #eaf0ff;
+  border-radius:16px;
+  box-shadow:0 8px 22px rgba(17,79,146,.06);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.story:hover{ transform:translateY(-2px); box-shadow:0 12px 28px rgba(17,79,146,.12); }
+
+.story-icon{
+  width:42px; height:42px;
+  display:grid; place-items:center;
+  border-radius:12px;
+  background:linear-gradient(180deg,#f5f9ff,#ffffff);
+  border:1px solid #e4ecff;
+  font-size:1.2rem; line-height:1;
+  flex:0 0 42px;
+}
+
+.story-text{ display:grid; gap:.15rem; }
+.story-title{ font-weight:800; line-height:1.15; }
+.story-sub{ color:#555; font-size:.95rem; line-height:1.35; }
+
+/* Two columns on wider screens */
+@media (min-width: 880px){
+  .story-grid{
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+    gap:.9rem;
   }
 }

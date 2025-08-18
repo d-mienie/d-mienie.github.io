@@ -1,55 +1,96 @@
-// src/pages/About.js
-function About() {
+import React from "react";
+import "./About.css";
+
+export default function About() {
   return (
-    <div className="content page-shell">
-      <div className="page-card">
-        <h1 className="page-title">Hi, I'm Danté Mienie</h1>
-        <p className="page-subtitle">Software Engineer</p>
+    <section className="content about">
+      <div className="page-card about-card">
+        {/* Profile header */}
+        <header className="about-hero">
+          <h1 className="page-title about-title">Hi, I'm Danté Mienie</h1>
+          <p className="page-subtitle about-role">Software Engineer</p>
+          <img src="/me.jpg" alt="Danté Mienie" className="about-avatar" />
+        </header>
 
-        <div className="about-row">
-          {/* Text section */}
-          <div className="about-text" style={{ textAlign: 'left', lineHeight: '1.6' }}>
-            <p style={{ marginBottom: '1.2rem' }}>
-              I’m a software engineer passionate about building systems that solve real problems,
-              from AI-powered applications and automation workflows to intuitive user interfaces.
-              My experience spans full-stack web development, data analytics, and systems
-              programming, with projects ranging from a 2D AI medical interview chatbot to automated
-              scheduling tools used in production.
-            </p>
+        {/* Tech bio */}
+        <div className="about-prose">
+          <p>
+            I’m a software engineer passionate about building systems that solve real problems,
+            from AI-powered applications and automation workflows to intuitive user interfaces.
+            My experience spans full-stack web development, data analytics, and systems programming,
+            with projects ranging from a 2D AI medical interview chatbot to automated scheduling
+            tools used in production.
+          </p>
+          <p>
+            I’m especially drawn to the intersection of technology and other fields—particularly
+            finance and AI—and I thrive on turning complex challenges into scalable, impactful
+            solutions.
+          </p>
+        </div>
 
-            <p style={{ marginBottom: '1.8rem' }}>
-              I’m especially drawn to the intersection of technology and other fields, particularly
-              finance and AI, and I thrive on turning complex challenges into scalable, impactful
-              solutions.
-            </p>
+<h3 className="section-title">A bit about me</h3>
 
-            <h3 className="skills-heading" style={{ marginTop: '2rem', marginBottom: '0.8rem' }}>
-              Skills
-            </h3>
-            <p className="skills-text" style={{ marginBottom: '2rem' }}>
-              <strong>Programming & Frameworks:</strong> Java, Python, JavaScript (React, Node.js), HTML/CSS, R, SQL <br />
-              <strong>Systems & Tools:</strong> C, Rust, MIPS Assembly, Git, Linux, Airtable API, Google Apps Script <br />
-              <strong>Data & AI:</strong> Machine Learning, Data Analysis, Automation, Statistical Modeling
-            </p>
-            <a
-              className="btn-resume"
-              href="/resume.pdf"
-              download="Dante_Mienie_Resume.pdf"
-            >
-              Download Résumé
-            </a>
-          </div>
+<div className="story-grid">
+  <div className="story">
+    <span className="story-icon" aria-hidden>🇿🇦</span>
+    <div className="story-text">
+      <div className="story-title">From South Africa</div>
+      <div className="story-sub">now living in the USA</div>
+    </div>
+  </div>
 
-          {/* Photo */}
-          <img
-            src="/me.jpg"
-            alt="Danté Mienie"
-            className="about-photo"
-          />
+  <div className="story">
+    <span className="story-icon" aria-hidden>🎓</span>
+    <div className="story-text">
+      <div className="story-title">BSc, Computer Science</div>
+      <div className="story-sub">University of Arizona</div>
+    </div>
+  </div>
+
+  <div className="story">
+    <span className="story-icon" aria-hidden>✈️</span>
+    <div className="story-text">
+      <div className="story-title">Travel lover</div>
+      <div className="story-sub">curious about people & places</div>
+    </div>
+  </div>
+
+  <div className="story">
+    <span className="story-icon" aria-hidden>📸</span>
+    <div className="story-text">
+      <div className="story-title">Always making</div>
+      <div className="story-sub">photos, side projects, memories</div>
+    </div>
+  </div>
+</div>
+
+
+
+        {/* Skills */}
+        <h3 className="section-title">Skills</h3>
+        <ul className="chip-list">
+          <li className="chip">Java</li>
+          <li className="chip">Python</li>
+          <li className="chip">JavaScript (React, Node)</li>
+          <li className="chip">HTML/CSS</li>
+          <li className="chip">R</li>
+          <li className="chip">SQL</li>
+          <li className="chip">C</li>
+          <li className="chip">Rust</li>
+          <li className="chip">MIPS</li>
+          <li className="chip">Git & Linux</li>
+          <li className="chip">Airtable API</li>
+          <li className="chip">Google Apps Script</li>
+          <li className="chip">ML & Data Analysis</li>
+          <li className="chip">Automation</li>
+        </ul>
+
+        <div className="about-cta">
+          <a className="btn-resume" href="/resume.pdf" download="Dante_Mienie_Resume.pdf">
+            Download Résumé
+          </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
-
-export default About;

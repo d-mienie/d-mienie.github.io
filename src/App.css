@@ -1,325 +1,173 @@
-body, .App {
+/* ================= Vars ================= */
+:root {
+  --brand: #1976d2;
+  --nav-h: 72px;        /* desktop navbar height */
+}
+
+/* ================= Reset ================= */
+html, body, #root, .App {
   margin: 0;
   padding: 0;
-  width: 100vw;
-  min-height: 100vh;
-  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+* { box-sizing: border-box; }
+
+body {
+body { background: #ffffff; color: #111; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+
 }
 
-.App {
-  width: 100vw;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ================= Navbar (your original logo + inline links) ================= */
+nav {
+  position: fixed;                 /* desktop: fixed bar */
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  z-index: 20;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.video-header {
-  position: relative !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  overflow: hidden !important;
-  z-index: 0 !important;
-  padding-top: 60px; /* Height of navbar */
-}
-
-.video-header iframe {
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  width: 120vw !important;
-  height: 120vh !important;
-  min-width: 100vw !important;
-  min-height: 100vh !important;
-  transform: translate(-50%, -50%) !important;
-  border: 0 !important;
-}
-
-nav {
-  width: 100vw !important;
-  background: #fff !important;
-  color: #1976d2 !important;
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  z-index: 10 !important;
-  display: flex !important;
-  justify-content: center !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  height: clamp(64px, 10vw, 100px);
-  padding: 0;
-}
-
-nav ul {
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 0.5rem !important;
-  list-style: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  align-items: center;
-  height: 100%;
-}
-nav li {
-  margin: 0 !important;
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-nav a {
-  color: #1976d2 !important;
-  text-decoration: none !important;
-  font-weight: bold !important;
-  font-size: clamp(1rem, 2vw, 1.1rem);
-  display: inline-block;
-  align-items: center;
-  height: auto;
-  line-height: 1.2;
-  padding: 0.3em 0.7em;
-  margin: 0 0.1em;
-  transition: background 0.2s, color 0.2s, font-size 0.2s;
-  border-radius: 1.2em;
-}
-
-nav a:hover, nav a:focus {
-  background: #1976d2 !important;
-  color: #fff !important;
 }
 
 .navbar-content {
   max-width: 1200px;
   width: 100%;
+  height: 100%;
   margin: 0 auto;
+  padding: 0 .75rem;
+
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  padding: 0 2vw;
+  gap: .75rem;
 }
 
 .navbar-logo {
-  height: clamp(36px, 7vw, 72px);
+  height: 52px;
   width: auto;
   display: block;
-  transition: height 0.2s;
+}
+
+/* links */
+nav ul {
+  list-style: none;     /* no bullets */
+  margin: 0;
+  padding: 0;
+
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+nav li { display: flex; align-items: center; height: 100%; }
+
+nav a {
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: .45em .8em;
+  border-radius: 999px;
+  transition: background .2s, color .2s;
+  white-space: nowrap;
+}
+nav a:hover, nav a:focus { background: var(--brand); color: #fff; }
+
+/* ==== Mobile: stack links under the logo & make header static so hero sits right below ==== */
+@media (max-width: 760px) {
+  nav {
+    position: static;              /* not fixed on mobile */
+    height: auto;
+    padding: .5rem .75rem .35rem;
+  }
+  .navbar-content {
+    height: auto;
+    flex-direction: column;        /* logo row, then links row */
+    align-items: center;
+    gap: .5rem;
+  }
+  .navbar-logo { height: 44px; }
+
+  nav ul {
+    margin-left: 0;
+    width: 100%;
+    flex-wrap: wrap;               /* wrap to two rows if needed */
+    justify-content: center;
+    gap: .35rem .5rem;
+  }
+  nav a {
+    font-size: .98rem;
+    padding: .35em .6em;
+  }
 }
 
 .content {
-  position: relative;
-  z-index: 1;
-  padding: 3rem 0 1rem 0;
-  width: 100vw;
-  max-width: none;
-  margin: 2rem 0 0 0;
-  background: rgba(255,255,255,0.95);
-  border-radius: 0;
-  box-shadow: none;
-  text-align: center;
-}
+  /* center + max width */
+  max-width: 1120px;
+  margin: calc(var(--nav-h) + 1rem) auto 2rem;
 
-.intro-flex {
-  width: 100vw;
-  max-width: 100vw;
-  padding: 0 4vw;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2.5rem;
-  flex-wrap: wrap;
+  /* space inside the card */
+  padding: clamp(16px, 3vw, 32px);
+
+  /* make the card white and subtly separated from the off-white canvas */
+  background: #ffffff;
+  border: 1px solid #e9e9e9;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
   text-align: left;
 }
 
-.intro-text {
-  flex: 1 1 250px;
-  min-width: 220px;
+/* Comfortable typography inside the card */
+.content p { line-height: 1.65; }
+
+/* Mobile: header is static, so use small, even gutters all around */
+@media (max-width: 760px) {
+  .content {
+    margin: 0.75rem;
+    margin-top: 0.75rem;         /* sits right below the stacked nav */
+    padding: 1rem 1.1rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  }
 }
 
-.intro-photo {
-  flex: 0 0 180px;
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 1rem;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.10);
-  background: #f5f5f5;
+.content .page-title,
+.page-card .page-title {
+  text-align: center;
+  margin: 0 0 .5rem;
 }
-@media (max-width: 700px) {
+
+.content .page-subtitle,
+.page-card .page-subtitle {
+  text-align: center;
+  margin: 0 auto 1.25rem;   /* centers + gives breathing room */
+  max-width: 65ch;          /* keeps subtitle from stretching too wide */
+  color: #444;
+}
+
+/* (Optional) If you use section headers inside pages and want those centered too: */
+.content .section-title,
+.page-card .section-title {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 760px) {
+  .about-row,
   .intro-flex {
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
-    padding: 0 1rem;
+    gap: 1rem;
+  }
+  .about-text,
+  .intro-text {
     text-align: center;
   }
+  .about-photo,
   .intro-photo {
-    width: 120px;
-    height: 120px;
-    margin-top: 1rem;
+    margin: .25rem auto 0;        /* centers under the text */
   }
-}
-
-@media (max-width: 700px) {
-  nav {
-    height: clamp(48px, 12vw, 64px);
-  }
-  .navbar-content {
-    padding: 0 1vw;
-  }
-  .navbar-logo {
-    height: clamp(28px, 10vw, 48px);
-  }
-  nav a {
-    font-size: clamp(0.9rem, 4vw, 1rem);
-    padding: 0.2em 0.5em;
-  }
-}
-/* ===== Unified Page Card ===== */
-.page-shell {
-  display: flex;
-  justify-content: center;
-  padding: clamp(5rem, 8vh, 6rem) 2rem 2rem;
-}
-
-
-.page-card {
-  width: 100%;
-  max-width: 1200px;              /* same width for all pages */
-  background: #fff;
-  border: 1px solid #eaeaea;
-  border-radius: 18px;
-  padding: 2.2rem 3rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-}
-
-/* Unified headings */
-.page-card .page-title {
-  font-size: clamp(28px, 4vw, 42px);
-  margin: 0 0 0.75rem 0;
-  line-height: 1.15;
-}
-.page-card .page-subtitle {
-  font-size: clamp(16px, 2.2vw, 20px);
-  margin: 0 0 1.5rem 0;
-  color: #444;
-}
-
-/* Photography grid (inside the card) */
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 1fr));
-  gap: 1.75rem;
-  align-items: start;
-}
-.photo-card { display: flex; flex-direction: column; }
-.photo-thumb {
-  width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  display: block;
-}
-.photo-desc {
-  margin: 0.8rem 0.2rem 0;
-  font-size: 1.03rem;
-  color: #444;
-  text-align: center;
-}
-
-.follow-text { margin-top: 2rem; text-align: center; }
-
-/* Responsive */
-@media (max-width: 1100px) {
-  .photo-grid { grid-template-columns: repeat(2, minmax(280px, 1fr)); }
-}
-@media (max-width: 680px) {
-  .page-shell { padding: 1rem; }
-  .page-card { padding: 1.25rem; border-radius: 14px; }
-  .photo-grid { grid-template-columns: 1fr; gap: 1.1rem; }
-}
-/* Make .content behave like the new pages when paired with .page-shell */
-.page-shell.content {
-  /* use page-shell spacing, not the old .content */
-  padding: clamp(5rem, 8vh, 6rem) 2rem 2rem;
-  margin: 0;
-  background: transparent;
-}
-
-/* Side-by-side layout for About */
-.about-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  /* keep photo beside text on desktop */
-  flex-wrap: nowrap;
-}
-
-.about-text {
-  flex: 1 1 55%;
-  min-width: 420px;   /* prevents early wrap on medium screens */
-}
-
-.about-photo {
-  flex: 0 0 320px;
-  width: 320px;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-
-/* Buttons / headings (reuse if you don't have them already) */
-.skills-heading { margin: 1.25rem 0 0.35rem; font-size: 1.1rem; font-weight: 600; }
-.skills-text    { margin: 0 0 1.25rem; color: #333; }
-.btn-resume {
-  display: inline-block;
-  background: #1976d2; color: #fff; text-decoration: none; font-weight: 600;
-  padding: 0.7rem 1.2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-}
-.btn-resume:hover { background: #125ea2; }
-
-/* Responsive: allow stacking on small screens */
-@media (max-width: 900px) {
-  .about-row { flex-wrap: wrap; text-align: center; }
-  .about-text { min-width: 0; flex: 1 1 100%; }
-  .about-photo { width: min(75vw, 340px); height: auto; flex: none; }
 }

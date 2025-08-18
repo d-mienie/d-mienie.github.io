@@ -1,0 +1,40 @@
+:root { --brand: #1976d2; }
+
+/* The .content wrapper already provides the white card + padding */
+.contact { display: grid; gap: 1.25rem; }
+
+/* Header */
+.contact-header .page-title { margin: 0 0 .35rem; }
+.contact-header .page-subtitle { margin: 0; color: #444; line-height: 1.6; }
+
+/* Grid of contact items (the “little boxes”) */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: .9rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  padding: .85rem 1rem;
+  background: #fff;
+  border: 1px solid #e9e9e9;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.04);
+}
+
+.ci-emoji { font-size: 1.25rem; line-height: 1.2; }
+.ci-body  { display: grid; gap: .2rem; }
+.ci-label { font-weight: 700; }
+
+.ci-link {
+  color: var(--brand);
+  text-decoration: none;
+  word-break: break-word;
+}
+.ci-link:hover { text-decoration: underline; }
+
+/* Footer note */
+.contact-foot { margin-top: .25rem; color: #666; }
